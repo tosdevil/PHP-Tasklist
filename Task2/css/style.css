@@ -1,0 +1,15 @@
+.page_title_style {
+	color: brown;
+	margin: 0;
+	font-size: 20px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	transition: 0.5s;
+}
+
+.page_title_style:hover {
+	color: brown;
+	margin: 0;
+	font-size: 30px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	transition: 0.5s;
+}
