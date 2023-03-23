@@ -33,6 +33,5 @@
 	<footer>
 		<p>Карпов Тимофей, 2012</p>
 	</footer>
-	<script src = "js/script.js"></script>
 </body>
 </html>

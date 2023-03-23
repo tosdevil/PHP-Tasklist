@@ -1,5 +1,5 @@
 <h2 class = "page_title_style">Регистрация</h2>
-<form action = "registration.php" method = "post">
+<form action = "registration.php" method = "POST">
 	<div class = "input_box">
 			<input type = "text" name = "login">
 			<input type = "password" name = "password">
