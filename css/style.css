@@ -8,7 +8,7 @@
 
 .page_title_style:hover {
 	margin: 0;
-	font-size: 50px;
+	color: #252525;
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	transition: 0.5s;
 }

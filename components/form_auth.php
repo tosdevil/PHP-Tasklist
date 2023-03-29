@@ -1,4 +1,3 @@
-<h2 class = "page_title_style">Авторизация</h2>
 <form action = "authorize.php" method = "post">
 	<div class = "input_box">
 		<h2 class = "page_title_style">Авторизация</h2>
