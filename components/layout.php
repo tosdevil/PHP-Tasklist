@@ -16,6 +16,9 @@
       <li>
         <a href="index.php">Главная</a>
       </li>
+			<li>
+        <a href="addtask.php">Список дел</a>
+      </li>
       <li>
         <a href="registration.php">Регистрация</a>
       </li>
