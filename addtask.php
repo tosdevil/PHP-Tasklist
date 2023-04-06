@@ -21,7 +21,7 @@ $stmt = pdo()->query("SELECT * FROM tasks");
 while ($row = $stmt->fetch())
 {
     // echo $row["id"];
-    $content =  $content . $row['task'] . "<br>";
+    $content =  $content . "<p>".$row['task']."</p>"."<button onclick = 'deletetask(".$row['id'].")>delete</button>";
 }
 include("components/layout.php");
 
