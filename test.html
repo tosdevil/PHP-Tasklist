@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>testmf</title>
+</head>
+<body>
+	<h1 id = "textFromServer"></h1>
+	<form action = "">
+		<textarea name = "text_test" id = "text_test" cols = "30" rows = "10"></textarea>
+	</form>
+	<button onclick = "read()">get data</button>
+	<button onclick = "send()">send data</button>
+	<script>
+		async function read()
+		{
+			console.log('hallo spaceboy!');
+			let response = await fetch('test.php');
+			if (response.ok) { // если HTTP-статус в диапазоне 200-299
+    		// получить тело
+   			 // получаем тело ответа (см. про этот метод ниже)
+    	let answer= await response.text();
+			console.log(answer);
+			} else {
+				alert("Ошибка HTTP: " + response.status);
+			}
+		}
+
+		async function send()
+		{
+			let response = await fetch('test.php', {
+				method: 'POST',
+				body: new FormData(document.forms[0])
+			});
+			if (response.ok) { // если HTTP-статус в диапазоне 200-299
+    		// получить тело
+   			 // получаем тело ответа (см. про этот метод ниже)
+    	let answer= await response.text();
+			console.log(answer);
+			textFromServer.innerHTML = answer;
+			} else {
+				alert("Ошибка HTTP: " + response.status);
+			}
+		}
+	</script>
+</body>
+</html>

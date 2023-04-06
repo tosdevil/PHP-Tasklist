@@ -2,9 +2,10 @@
 require_once __DIR__.'/boot.php';
 
 $title =  "Задания";
-// $user_login = $_SESSION['user_login'];
-echo "asdasd".$_SESSION['user_login'];
-$page_title = $_SESSION['user_login'];
+$user_login = $_SESSION['user_login'];
+echo "Your login is ".$_SESSION['user_login'];
+echo "is auth = ".$_SESSION['auth'];
+$page_title = "пока что ниче не работает";
 
 $content = file_get_contents("components/form_addtask.php");
 if(isset($_POST["task"])) {

@@ -1,5 +1,7 @@
 <?php
-include("boot.php");
+// include("boot.php");
+
+require_once __DIR__.'/boot.php';
 
 $title =  "Авторизация";
 $page_title = "Авторизация";
@@ -21,6 +23,7 @@ if (isset($_POST["login"]) and isset($_POST["password"])){
 		$_SESSION['user_id'] = $id_get;
 		$_SESSION['user_login'] = $login;
 		echo $_SESSION['user_login'];
+		echo $_SESSION['user_id'];
 	}
 	else 
 	{
