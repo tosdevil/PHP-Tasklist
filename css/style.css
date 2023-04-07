@@ -1,3 +1,8 @@
+p 
+{
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 .page_title_style {
 	color: brown;
 	margin: 0;
@@ -11,6 +16,11 @@
 	color: #252525;
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	transition: 0.5s;
+}
+
+button {
+	width: 50px;
+	height: 50px;
 }
 
 /* main 

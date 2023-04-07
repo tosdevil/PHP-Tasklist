@@ -5,6 +5,12 @@
 			<input type = "text" name = "task">
 			<input type = "submit" value = "Добавить">
 		</form>
+		<div class="singletask_block" style = "width: 500px;display:flex;flex-direction:row; margin-left:20px;margin-right:20px; justify-content: space-between; border: 5px solid black; padding: 10px;">
+			<p class="singletask_author">Автор</p>
+			<p class="singletask_label">Задача</p>
+			<button class="singletask_edit" onclick = "edittask()"><img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Black_pencil.svg/600px-Black_pencil.svg.png" style = "width:20px;height:20px;"/></button>
+			<button class="singletask_delete" onclick = "deletetask()"><img src = "https://cdn-icons-png.flaticon.com/512/542/542724.png" style = "width:20px;height:20px;"/></button>
+		</div>
 		<script>
 			async function deletetask()
 		{

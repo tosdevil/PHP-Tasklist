@@ -16,7 +16,7 @@ $content =
 while ($row = $stmt->fetch())
 {
     // echo $row["id"];
-    $content =  $content . $row['id'] . " | ". $row['login'] . " | " . $row['password'] . "<br>";
+    $content =  $content . $row['user_id'] . " | ". $row['login'] . " | " . $row['password'] . "<br>";
 }
 include("components/layout.php");
 
