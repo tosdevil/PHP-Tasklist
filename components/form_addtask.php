@@ -12,12 +12,15 @@
 			<button class="singletask_delete" onclick = "deletetask()"><img src = "https://cdn-icons-png.flaticon.com/512/542/542724.png" style = "width:20px;height:20px;"/></button>
 		</div>
 		<script>
-			async function deletetask()
+			async function deletetask(taskid)
 		{
 			let response = await fetch('deletetask.php', {
 				method: 'POST',
 				body: new FormData(document.forms[0])
 			});
+
+			
+
 			if (response.ok) { // если HTTP-статус в диапазоне 200-299
     		// получить тело
    			 // получаем тело ответа (см. про этот метод ниже)
