@@ -19,11 +19,24 @@ if (isset($_POST["login"]) and isset($_POST["password"])){
 	{
 		echo 'Авторизация успешна!';
 		$_SESSION['auth'] = true;
-		$id_get = pdo() -> query("SELECT id FROM users WHERE (login, password) = ('$login','$pas')");
-		$_SESSION['user_id'] = $id_get;
-		$_SESSION['user_login'] = $login;
+
+		
+
+		$id_get = pdo() -> query("SELECT user_id FROM users WHERE (login, password) = ('$login','$pas')");
+
+		while ($row = $id_get->fetch())
+		{
+			$_SESSION['user_id'] = $row['user_id'];
+		}
+		// $_SESSION['user_id'] = $id_get['user_id'];
+
+		$_SESSION['user_login'] = "$login";
+		$_SESSION['randommsg'] = "как же круто";
+		echo $_SESSION['randommsg'];
 		echo $_SESSION['user_login'];
 		echo $_SESSION['user_id'];
+
+		print_r($_SESSION);
 	}
 	else 
 	{

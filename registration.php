@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 $title =  "Регистрация";
 $page_title = "Регистрация";
