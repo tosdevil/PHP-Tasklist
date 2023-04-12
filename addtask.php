@@ -4,30 +4,26 @@
 
 require_once __DIR__.'/boot.php';
 
-$_SESSION['user_login'] = isset($_POST['user_login']) ? $_POST['user_login'] : null." ";
-$_SESSION['user_id'] = isset($_POST['user_id']) ? $_POST['user_id'] : null." ";
-$_SESSION['auth'] = isset($_POST['auth']) ? $_POST['auth'] : false;
+// $_SESSION['user_login'] = isset($_POST['user_login']) ? $_POST['user_login'] : null." ";
+// $_SESSION['user_id'] = isset($_POST['user_id']) ? $_POST['user_id'] : null." ";
+// $_SESSION['auth'] = isset($_POST['auth']) ? $_POST['auth'] : false;
 $title =  "Задания";
-$user_login = $_SESSION['user_login'];
-$user_id = $_SESSION['user_id'];
-// print_r($_SESSION);
-$_SESSION['user_login'] = isset($_POST['user_login']) ? $_POST['user_login'] : null." ";
-$_SESSION['user_id'] = isset($_POST['user_id']) ? $_POST['user_id'] : null." ";
-echo "Your login is ".$user_login;
+
+// echo "Your login is ".$user_login;
 // echo "Your id is ".$_SESSION['user_id'];
-echo "is auth = ".$_SESSION['auth'];
+// echo "is auth = ".$_SESSION['auth'];
 
 
 if(isset($_SESSION['user_login']))
 {
-$page_title = "Добро пожаловать, ".$_SESSION['user_login'];
-}
-else
-{
-	$page_title = "Вы не авторизованы";
-}
+	$user_login = $_SESSION['user_login'];
+	$user_id = $_SESSION['user_id'];
+	// print_r($_SESSION);
+	$page_title = "Добро пожаловать, ".$_SESSION['user_login'];
+	$content = file_get_contents("components/form_addtask.php");
 
-$content = file_get_contents("components/form_addtask.php");
+
+
 if(isset($_POST["task"])) {
 $task = $_POST["task"];
 if(isset($_POST["task"])) {
@@ -45,9 +41,15 @@ while ($row = $stmt->fetch())
 			<p class="singletask_author">'.$row['login'].'</p>
 			<p class="singletask_label" style = "width: 200px;">'.$row['task'].'</p>
 			<button class="singletask_edit" onclick = "edittask('.$row['id'].')"><img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Black_pencil.svg/600px-Black_pencil.svg.png" style = "width:20px;height:20px;"/></button>
-			<button class="singletask_delete" onclick = "deletetask('.$row['id'].')"><img src = "https://cdn-icons-png.flaticon.com/512/542/542724.png" style = "width:20px;height:20px;"/></button>
+			<a href = "deletetask.php?id='.$row['id'].'"><button class="singletask_delete"><img src = "https://cdn-icons-png.flaticon.com/512/542/542724.png" style = "width:20px;height:20px;"/></button></a>
 		</div>';
 
+}
+}
+else
+{
+	$page_title = " ";
+	$content = file_get_contents("components/form_isnotauth.php");
 }
 include("components/layout.php");
 

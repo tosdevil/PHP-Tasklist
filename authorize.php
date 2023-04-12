@@ -32,11 +32,11 @@ if (isset($_POST["login"]) and isset($_POST["password"])){
 
 		$_SESSION['user_login'] = "$login";
 		$_SESSION['randommsg'] = "как же круто";
-		echo $_SESSION['randommsg'];
-		echo $_SESSION['user_login'];
-		echo $_SESSION['user_id'];
+		// echo $_SESSION['randommsg'];
+		// echo $_SESSION['user_login'];
+		// echo $_SESSION['user_id'];
 
-		print_r($_SESSION);
+		// print_r($_SESSION);
 	}
 	else 
 	{

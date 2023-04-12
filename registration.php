@@ -21,7 +21,8 @@ if (isset($_POST["login"]) and isset($_POST["password"])){
 	{
 		$stmt = pdo()->query("INSERT INTO users(login, password) VALUES ('$login','$pas')");
 		echo 'Успешная регистрация!';
+		header("Location: authorize.php");
 	}
-	header("Location: ".$_SERVER['REQUEST_URI']);
+	
 }
 ?>
