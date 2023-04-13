@@ -8,6 +8,10 @@ $content =
 ';
 
 require_once __DIR__.'/boot.php';
+
+if($_SESSION['user_login'] == 'admin')
+{
+
 $stmt = pdo()->query("SELECT * FROM users");
 $content = 
 '
@@ -16,7 +20,12 @@ $content =
 while ($row = $stmt->fetch())
 {
     // echo $row["id"];
-    $content =  $content . $row['user_id'] . " | ". $row['login'] . " | " . $row['password'] . "<br>";
+    $content =  $content . $row['user_id'] . " | ". $row['login'] . " | " . $row['password'] . " | " . "<a href = 'banuser.php?".$row['user_id']."><p>Заблокировать</p></a>'"." | "."<br>";
+}
+}
+else
+{
+    $content = $content."<p>Доступ разрешен только для администратора.</p>";
 }
 include("components/layout.php");
 

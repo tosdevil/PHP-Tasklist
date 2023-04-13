@@ -33,7 +33,7 @@ $adding_task = pdo()->query("INSERT INTO tasks(user_id, task) VALUES ('$user_id'
 
 header("Location: ".$_SERVER['REQUEST_URI']);
 }
-$stmt = pdo()->query("select u.user_id, u.login, t.task, t.id from users u, tasks t where (u.user_id = t.user_id)");
+$stmt = pdo()->query("select u.user_id, u.login, t.task, t.id from users u, tasks t where (u.user_id = t.user_id) and u.user_id = $user_id");
 while ($row = $stmt->fetch())
 {
     $content = $content . 
@@ -45,11 +45,12 @@ while ($row = $stmt->fetch())
 		</div>';
 
 }
+$content = $content . '<a href = "logout.php"><p>Выйти</p></a>';
 }
 else
 {
-	$page_title = " ";
-	$content = file_get_contents("components/form_isnotauth.php");
+	$page_title = "Список дел";
+	$content = "<p>Авторизуйтесь, чтобы увидеть содержимое.</p>";
 }
 include("components/layout.php");
 
