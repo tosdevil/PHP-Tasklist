@@ -41,7 +41,7 @@ if (isset($_POST["login"]) and isset($_POST["password"])){
 		// echo $_SESSION['user_login'];
 		// echo $_SESSION['user_id'];
 
-		print_r($_SESSION);
+		// print_r($_SESSION);
 	}
 	else 
 	{

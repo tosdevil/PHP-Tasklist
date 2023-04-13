@@ -13,7 +13,12 @@ $title =  "Задания";
 // echo "Your id is ".$_SESSION['user_id'];
 // echo "is auth = ".$_SESSION['auth'];
 
-
+// $zapros = pdo()->query("SELECT * FROM `users` WHERE login = '$_SESSION['user_login']')");
+// $isblocked = $zapros -> fetch();
+// if ($isblocked['isblocked'] == 1)
+// {
+// 	echo 'Эта учетная запись заблокирована.';
+// }
 if(isset($_SESSION['user_login']))
 {
 	$user_login = $_SESSION['user_login'];
