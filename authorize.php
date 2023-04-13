@@ -15,7 +15,12 @@ if (isset($_POST["login"]) and isset($_POST["password"])){
 	// echo $login ." ".$pas;
 
 	$zapros = pdo()->query("SELECT * FROM `users` WHERE (login, password) = ('$login','$pas')");
-	if ($zapros -> RowCount() == 1) 
+	$isblocked = $zapros -> fetch();
+	if ($isblocked['isblocked'] == 1)
+	{
+		echo 'Эта учетная запись заблокирована.';
+	}
+	else if ($zapros -> RowCount() == 1) 
 	{
 		echo 'Авторизация успешна!';
 		$_SESSION['auth'] = true;
@@ -36,7 +41,7 @@ if (isset($_POST["login"]) and isset($_POST["password"])){
 		// echo $_SESSION['user_login'];
 		// echo $_SESSION['user_id'];
 
-		// print_r($_SESSION);
+		print_r($_SESSION);
 	}
 	else 
 	{
