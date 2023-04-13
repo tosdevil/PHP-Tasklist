@@ -7,9 +7,13 @@ $title =  "Авторизация";
 $page_title = "Авторизация";
 $content = file_get_contents("components/form_auth.php");
 
-require('components/layout.php');
-
-if (isset($_POST["login"]) and isset($_POST["password"])){
+if (isset($_SESSION['user_login']))
+{
+	$content = "<p>Вы уже авторизовались!</p>";
+	$content = $content . '<a href = "logout.php"><p>Выйти</p></a>';
+}
+else if (isset($_POST["login"]) and isset($_POST["password"])){
+	
 	$login = $_POST["login"];
 	$pas = $_POST["password"];
 	// echo $login ." ".$pas;
@@ -18,7 +22,7 @@ if (isset($_POST["login"]) and isset($_POST["password"])){
 	$isblocked = $zapros -> fetch();
 	if ($isblocked['isblocked'] == 1)
 	{
-		echo 'Эта учетная запись заблокирована.';
+		$content = $content.'<p>Эта учетная запись заблокирована.</p>';
 	}
 	else if ($zapros -> RowCount() == 1) 
 	{
@@ -42,13 +46,14 @@ if (isset($_POST["login"]) and isset($_POST["password"])){
 		// echo $_SESSION['user_id'];
 
 		// print_r($_SESSION);
+		header("Location: ".$_SERVER['REQUEST_URI']);
 	}
 	else 
 	{
 		// $stmt = pdo()->query("INSERT INTO users(login, password) VALUES ('$login','$pas')");
-		echo 'Неверный логин или пароль.';
+		$content = $content.'<p>Неверный логин или пароль.</p>';
 	}
-	// header("Location: ".$_SERVER['REQUEST_URI']);
+	
 }
-
+include('components/layout.php');
 ?>
