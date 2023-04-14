@@ -21,6 +21,8 @@ $title =  "Задания";
 // 	$content = 'Эта учетная запись заблокирована.';
 // }
 
+
+
 if(isset($_SESSION['user_login']))
 {
 	$user_login = $_SESSION['user_login'];

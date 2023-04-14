@@ -23,6 +23,16 @@ button {
 	height: 50px;
 }
 
+.hidden
+{
+	opacity: 0;
+}
+
+.edit_task_block
+{
+	transition: 0.5s;
+}
+
 /* main 
 {
 	display: flex;
