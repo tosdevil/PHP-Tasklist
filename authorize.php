@@ -9,7 +9,7 @@ $content = file_get_contents("components/form_auth.php");
 
 if (isset($_SESSION['user_login']))
 {
-	$content = "<p>Вы уже авторизовались!</p>";
+	$content = "<p>Вы уже авторизовались, ".$_SESSION['user_login']."!</p>";
 	$content = $content . '<a href = "logout.php"><p>Выйти</p></a>';
 }
 else if (isset($_POST["login"]) and isset($_POST["password"])){

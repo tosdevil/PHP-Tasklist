@@ -28,7 +28,7 @@ if(isset($_SESSION['user_login']))
 	$user_login = $_SESSION['user_login'];
 	$user_id = $_SESSION['user_id'];
 	// print_r($_SESSION);
-	$page_title = "Добро пожаловать, ".$_SESSION['user_login'];
+	$page_title = "Список дел ".$_SESSION['user_login'];
 	$content = file_get_contents("components/form_addtask.php");
 
 
