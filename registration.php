@@ -4,8 +4,13 @@ $title =  "Регистрация";
 $page_title = "Регистрация";
 $content = file_get_contents("components/form_reg.php");
 
-require('components/layout.php');
+
 include("boot.php");
+if (isset($_SESSION['user_login']))
+{
+	$content = "<p>Вы уже зарегистрировались, ".$_SESSION['user_login']."!</p>";
+	$content = $content . '<a href = "logout.php"><p>Выйти</p></a>';
+}
 if (isset($_POST["login"]) and isset($_POST["password"])){
 	$login = $_POST["login"];
 	$pas = $_POST["password"];
@@ -25,4 +30,6 @@ if (isset($_POST["login"]) and isset($_POST["password"])){
 	}
 	
 }
+
+require('components/layout.php');
 ?>

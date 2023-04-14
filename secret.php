@@ -40,7 +40,7 @@ $content = $content . '<a href = "logout.php"><p>Выйти</p></a>';
 }
 else 
 {
-    $content = $content."<p>Авторизуйтесь, чтобы увидеть содержимое.</p>";
+    $content = $content."<p>Авторизируйтесь, чтобы увидеть содержимое.</p>";
 }
 include("components/layout.php");
 

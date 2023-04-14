@@ -29,7 +29,20 @@ if(isset($_SESSION['user_login']))
 	$user_id = $_SESSION['user_id'];
 	// print_r($_SESSION);
 	$page_title = "Список дел ".$_SESSION['user_login'];
-	$content = file_get_contents("components/form_addtask.php");
+
+	$zapross = pdo()->query("SELECT * FROM users where user_id = $user_id");
+	$isblocked = $zapross->fetch();
+	if ($isblocked['isblocked'] == 1)
+	{
+		$content = '<p>Ваша учетная запись была заблокирована.</p>';
+		$content = $content . '<a href = "logout.php"><p>Выйти</p></a>';
+	}
+	else
+	{
+		$content = file_get_contents("components/form_addtask.php");
+	
+
+	
 
 
 
@@ -62,10 +75,12 @@ while ($row = $stmt->fetch())
 }
 $content = $content . '<a href = "logout.php"><p>Выйти</p></a>';
 }
+}
+
 else
 {
 	$page_title = "Список дел";
-	$content = "<p>Авторизуйтесь, чтобы увидеть содержимое.</p>";
+	$content = "<p>Авторизируйтесь, чтобы увидеть содержимое.</p>";
 }
 include("components/layout.php");
 
