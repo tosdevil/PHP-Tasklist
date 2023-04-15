@@ -20,7 +20,7 @@ if (isset($_POST["login"]) and isset($_POST["password"])){
 	$zapros = pdo()->query("SELECT * FROM `users` WHERE login = '$login'");
 	if ($zapros -> RowCount() > 0) 
 	{
-		echo 'Этот логин уже занят, попробуйте использовать другой';
+		$content = $content . '<p>Этот логин уже занят, попробуйте использовать другой</p>';
 	}
 	else 
 	{
